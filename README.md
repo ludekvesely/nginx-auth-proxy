@@ -12,7 +12,6 @@ To run:
 
 ```
 SERVER_NAME=my-server-name
-UPSTREAM_ADDRESS=6.7.8.9
 UPSTREAM_PORT=1234
 USER=my-user
 PASSWORD=my-great-password
@@ -21,11 +20,11 @@ PASSWORD=my-great-password
 - save that file somewhere (like `.env`). Then:
 
 ```
-docker run --detach=true --env-file=./.env --publish=80:80 --name proxy proxy
+docker run --link web:upstream --detach=true --env-file=./.env --publish=80:80 --name proxy proxy
 ```
 
 - or by specifying the variables as part of the `docker run` command:
 
 ```
-docker run -e SERVER_NAME=foo -e ... --detach=true --publish=80:80 --name proxy proxy
+docker run --link web:upstream -e SERVER_NAME=foo -e ... --detach=true --publish=80:80 --name proxy proxy
 ```
