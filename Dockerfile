@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM x110dc/base
 
 # apache2-utils only needed for htpasswd command
 RUN apt-get install -yq apache2-utils nginx
