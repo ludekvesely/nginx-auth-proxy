@@ -1,7 +1,7 @@
 FROM x110dc/base
 MAINTAINER Ludek Vesely <ludek.vesely@email.com>
 
-RUN apt-get install -yq apache2-utils nginx && rm /etc/nginx/sites-enabled/default
+RUN apt-get update && apt-get install -yq apache2-utils nginx && rm /etc/nginx/sites-enabled/default
 
 EXPOSE 80
 
